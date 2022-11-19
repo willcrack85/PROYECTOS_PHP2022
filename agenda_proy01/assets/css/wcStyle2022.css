@@ -46,8 +46,8 @@ body {
 body {
     padding-top: 3.5rem;
     display: -ms-flexbox;
-    text-shadow: 0 0.05rem 0.1rem rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+    /* text-shadow: 0 0.05rem 0.1rem rgb(225, 238, 239); */
+    /* box-shadow: inset 0 0 5rem rgb(31, 12, 1); */
 }
 
 .jumbotron {
@@ -102,8 +102,24 @@ code {
     font-size: 80%;
 }
 
+fieldset {
+    background-color: #eeeeee;
+    border: 1px solid rgb(7, 186, 61);
+    padding: 5px;
+}
+
+legend {
+    background-color: gray;
+    color: white;
+    padding: 5px 10px;
+    font-family: -apple-system, helvetica, arial, sans-serif;
+    font-size: 15px;
+    vertical-align: baseline;
+    width: 40%;
+}
+
 table {
-    width: 100%;
+    /* width: 100%; */
     border: 1px solid rgb(7, 186, 61);
     border-collapse: separate;
     border-spacing: 5px;
@@ -128,13 +144,13 @@ td {
     color: rgb(16, 187, 19);
 }
 
-td.rigth {
+.rigth td {
     font-size: 10pt;
     text-align: right;
     color: rgb(231, 235, 11);
 }
 
-td.left {
+.left td {
     font-size: 10pt;
     text-align: left;
     color: rgb(231, 235, 11);
@@ -167,11 +183,46 @@ td.left {
  */
 
 .wcfooter {
-    color: rgba(255, 255, 255, 0.5);
-    background-color: #f5f5f5;
+    color: rgb(255, 255, 255);
+    padding: 28px 0;
+    margin-top: 55px;
 }
 
-.wcfooter > .container {
-    padding-right: 15px;
-    padding-left: 15px;
+.wcfooter span,
+.wcfooter b,
+.wcfooter a {
+    color: #ffffff;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+
+.wcfooter a:hover {
+    color: #007bff;
+}
+
+.back-to-top {
+    position: relative;
+    z-index: 2;
+}
+.back-to-top .btn-dark {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    padding: 0;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #2e2e2e;
+    border-color: #2e2e2e;
+    display: none;
+    z-index: 999;
+    -webkit-transition: all 0.3s linear;
+    -o-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+}
+.back-to-top .btn-dark:hover {
+    cursor: pointer;
+    background: #fa6742;
+    border-color: #fa6742;
 }

@@ -2,20 +2,56 @@
 //* Si se intenta acceder sin haber seleccionado una cita, se regresa al index. */
 if (!isset($_POST["citaSeleccionada"])) header("Location: ../index.php");
 ?>
-<html>
-</head>
-<?php
-//* Se incluye el miniscript de tratamiento de fechas
-include("../class/fechas.php");
-//* Se incluye el miniscript que abre la base de datos.
-require_once("../class/citasDB.php");
-$objCitas = new citaAgenda();
-?>
-<script language="javascript" type="text/javascript">
-    function volver() {
-        document.retorno.submit();
-    }
-</script>
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Template con PHP en Proyecto #01">
+    <meta name="keywords" content="HTML5, CSS, Javascript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="WillCrack Solution Corp.">
+    <meta name="generator" content="WC 01.23.1985">
+    <title>Mini-Agenda DS7 - Eliminar Nota</title>
+    <!-- Icono de la página WEB -->
+    <link rel="shortcut icon" type="image/x-ico" href="../assets/ico/favicon.ico" />
+    <!-- ESTILO Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+    <!-- ESTILO Custom PARA LA PAGINA WEB -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/wcStyle2022.css">
+    <!-- ESTILO PARA ALERTAS CON SWEET ALERT 2 -->
+    <link rel="stylesheet" type="text/css" href="../assets/css/sweetalert2.min.css">
+    <!-- ESTILO FONT AWESOME VERSION 6.2.1 -->
+    <link rel="stylesheet" type="text/css" href="../assets/fontawesome/css/all.css">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <?php
+    //* Se incluye el miniscript de tratamiento de fechas
+    include("../class/fechas.php");
+    //* Se incluye el miniscript que abre la base de datos.
+    require_once("../class/citasDB.php");
+    $objCitas = new citaAgenda();
+    ?>
+    <script language="javascript" type="text/javascript">
+        function volver() {
+            document.retorno.submit();
+        }
+    </script>
 </head>
 
 <body onLoad="javascript:volver();">

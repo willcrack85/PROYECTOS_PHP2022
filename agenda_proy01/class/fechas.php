@@ -1,6 +1,7 @@
 <?php
 //* Se define una secuencia para el salto de linea.
 define("salto", "\n<br>\n");
+define("space", "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
 /**
  * *Se determina si existe una variable de formulario (POST) con la fecha en curso de la agenda. 
  * *Si existe, la variable de memoria de la fecha se ajusta al contenido de la del formulario 

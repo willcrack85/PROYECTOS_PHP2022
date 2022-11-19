@@ -1,5 +1,3 @@
-<?php require_once("class/citasDB.php"); ?>
-
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
@@ -12,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="WillCrack Solution Corp.">
     <meta name="generator" content="WC 01.23.1985">
-    <title>Mini-agenda DS7</title>
+    <title>Mini-Agenda DS7 - 2022</title>
     <!-- Icono de la página WEB -->
     <link rel="shortcut icon" type="image/x-ico" href="assets/ico/favicon.ico" />
     <!-- ESTILO Bootstrap core CSS -->
@@ -21,6 +19,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/wcStyle2022.css">
     <!-- ESTILO PARA ALERTAS CON SWEET ALERT 2 -->
     <link rel="stylesheet" type="text/css" href="assets/css/sweetalert2.min.css">
+    <!-- ESTILO FONT AWESOME VERSION 6.2.1 -->
+    <link rel="stylesheet" type="text/css" href="assets/fontawesome/css/all.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -61,7 +61,7 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">REPORTES<span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -75,15 +75,16 @@
         <div class="jumbotron">
             <div class="container">
                 <h1 class="display-3">DS7 - Proyecto No. 01</h1>
-                <p class="lead">Objetivo: Desarrollar aplicaciones web en PHP con acceso a base de datos MySQL (MariaDB).</p>
+                <p class="lead">Aplicaciones web en PHP con integración a base de datos MySQL (MariaDB).</p>
                 <hr class="my-4">
             </div>
         </div>
         <div class="container-fluid px-4 my-4">
             <div class="row m-1">
                 <div class='jumbotron-wc1 border border-white col-md-12'>
-                    <div class="text-left shadow-lg p-3 mb-5 bg-light rounded">
+                    <div class="text-left shadow-lg p-4 mx-2 my-2 bg-light rounded">
                         <?php
+                        require_once("class/citasDB.php");
                         include("class/fechas.php");                                    //* Se incluye el miniscript de tratamiento de fechas
                         $objCitas = new citaAgenda();
                         $listaCitas = $objCitas->listar_citas_hoy($fechaEnCurso);       //* Se ejecuta la consulta de seleccion.
@@ -106,21 +107,22 @@
                         <form action="" method="post" name="frmCitasInicio" id="frmCitasInicio">
                             <!-- El siguiente campo oculto almacena la fecha en curso, obtenida desde PHP. Este dato se enviará a otros formularios y, a su vez, se rcuperará desde la página de cambio de fecha actual. -->
                             <input type="hidden" name="fechaEnCurso" id="fechaEnCurso" value="<?php echo ($fechaEnCurso); ?>">
-                            <table class='table table-striped table-dark'>
-                                <tr>
-                                    <th>AGENDA ELECTR&Oacute;NICA 2022</th>
-                                </tr>
-                            </table>
-                            <hr class="my-4">
+                            <div class='shadow-lg px-3 my-1 bg-light rounded'>
+                                <div class='table-responsive'>
+                                    <table class='table table-striped table-dark'>
+                                        <tr>
+                                            <th>AGENDA DIGITAL 2022</th>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                             <?php
                             /** 
                              * *Se comprueba si hay citas en el cursor. Si es así, se dibujará una
                              * *tabla en la que se mostrarán las citas y unos botones de selección. 
                              * */
-
                             if ($numeroDeCitasDelDia > 0) {
-
-                                echo ("<div class='shadow-lg p-3 mb-5 bg-light rounded'>");
+                                echo ("<div class='shadow-lg p-3 mb-3 bg-light rounded'>");
                                 echo ("<div class='table-responsive'>");
                                 echo ("<table class='table table-striped table-dark'>");
                                 echo ("<thead>");
@@ -166,7 +168,7 @@
                             echo ("</div>");
                             ?>
                     </div>
-                    <hr>
+                    <hr class="my-4">
                     <blockquote class="blockquote text-center">
                         <footer class="display-4 blockquote-footer text-white">Edicion Limitada</footer>
                     </blockquote>
@@ -174,11 +176,18 @@
             </div>
         </div> <!-- /container -->
     </main>
-    <footer class="wcfooter mt-auto py-3">
+    <footer class="wcfooter mt-auto py-3 mx-bg-top-linear">
         <div class="container text-center">
             <span class="text-muted">
                 <b>Dise&ntilde;ado por <a href="https://willcrackcorp.w3spaces.com/" title="WillCrack Solutions Corp., Panam&aacute;" target="_blank">WC Solutions Corp.</a> Copyright &copy; DS 7 - 2022 | William Miranda</b>
             </span>
+        </div>
+        <!-- Back to top -->
+        <div id="back-to-top" class="back-to-top">
+            <button class="btn btn-dark" title="Ir al Comienzo" style="display: block;">
+                <i class="fa-solid fa-angle-up"></i>
+                <!--Font Awesome v6.2.1 -->
+            </button>
         </div>
     </footer>
 </body>
@@ -201,7 +210,6 @@
             toast.addEventListener('mouseleave', Swal.resumeTimer)
         }
     });
-
     window.addEventListener('load', (event) => {
         wcMixin.fire({
             animation: true,
@@ -211,5 +219,4 @@
     //=====================================================================//
     window.jQuery || document.write('<script src="assets/js/jquery-3.5.1.min.js"><\/script>')
 </script>
-
 </html>
